@@ -1,0 +1,8 @@
+library(tidyverse)
+
+rcl_dataset_ml %>% 
+  count(decisao) %>% 
+  rename(freq="n") %>% 
+  mutate(prob_geral=freq/sum(freq)) %>% 
+  saveRDS("~/projetos/livia/docs/tabelas/prob_geral.rds")
+writexl::write_xlsx(prob_geral,"tabelas/prob_geral.xlsx")

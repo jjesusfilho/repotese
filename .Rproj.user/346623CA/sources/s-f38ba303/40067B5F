@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1554068419291.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "40067B5F",
+    "lastKnownWriteTime" : 1554069572,
+    "last_content_update" : 1554069572536,
+    "path" : "~/projetos/livia/docs/procedimento.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "556,0",
+        "scrollLine" : "544"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,28 @@
+]0;/home/livia/repotese]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ [K]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ [K]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ git[K[K[K[K]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ [K]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ [K]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ [K]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ [K]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ git init
+Initialized empty Git repository in /home/livia/repotese/.git/
+]0;/home/livia/repotese]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ [K]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ git commit -m "primeiro commit""[K
+On branch master
+
+Initial commit
+
+Untracked files:
+	[31m.Rbuildignore[m
+	[31m.Rproj.user/[m
+	[31mREADME.Rmd[m
+	[31mREADME.md[m
+	[31mbiblio.bib[m
+	[31mdata/[m
+	[31mgraficos/[m
+	[31mmodelagem.Rmd[m
+	[31mmodelagem.docx[m
+	[31mmodelagem.html[m
+	[31mprocedimento.Rmd[m
+	[31mprocedimento.docx[m
+	[31mprocedimento.html[m
+	[31mprocedimento.md[m
+	[31mrepotese.Rproj[m
+	[31msession.rds[m
+	[31mtabelas/[m
+
+nothing added to commit but untracked files present
+]0;/home/livia/repotese]0;jose@consudata: /home/livia/repotese[01;32mjose@consudata[00m:[01;34m/home/livia/repotese[00m$ gi [Kt add .

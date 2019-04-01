@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1554080180249.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2072876494",
+    "id" : "81BCB28F",
+    "lastKnownWriteTime" : 1554081938,
+    "last_content_update" : 1554081938374,
+    "path" : "/home/livia/repotese/README.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "12,24",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

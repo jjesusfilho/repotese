@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+# Código e base de dados
+
+Este repositório contém o código e a base de dados utilizados na análise de dados da tese de Lívia Pitelli. Nele você vai encontrar os seguintes arquivos e pastas.
+
+## Procedimento
+
+Há quatro arquivos denominados procedimento com diferentes extenções: Rmd, md, html e docx. O Rmd gera os demais e contêm os códigos utilizados para coletar as decisões do STF, limpá-las, organizá-las e realizar a análise exploratória.
+
+## Modelagem
+
+Este segue a mesma estrutura do primeiro e lhe dá continuidade. Nele estão as análises inferenciais e preditivas.
+
+## Data
+
+Na pasta data, você encontra duas bases de dados em três formatos distintos: rds, json e xlsx. A base rcl_dataset é a base final após a coleta e  organização dos dados. Ela possui linhas a mais porque nela estão as decisões colegiadas.
+
+A outra base é denominada rcl_dataset_ml. Ela é a base pronta para rodar regressão logística e os modelos de aprendizado de máquina.
+
+## Gráficos
+
+Nesta pasta constam os gráficos gerados durante a análise
+
+## Tabela
+
+Nesta pasta constam as tabelas geradas a partir das duas principais bases.
+
+
+## Reproducibilidade
+
+A fim de assegurar a reproducibilidade, abaixo segue a configuração da máquina utilizada para realizar a coleta, organização e análise dos dados.
+
+```{r echo=TRUE, eval=FALSE}
+sessionInfo()
+```
+
+```{r echo=FALSE, eval=TRUE}
+readRDS("session.rds")
+```
+

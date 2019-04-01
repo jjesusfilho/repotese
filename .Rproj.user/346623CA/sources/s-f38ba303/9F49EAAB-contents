@@ -1,0 +1,167 @@
+---
+title: "graficos"
+author: "Livia"
+date: "1/30/2019"
+output: word_document
+---
+
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.path='graficos/',   dev = 'png', 
+warning=FALSE, 
+message=FALSE,
+echo=FALSE)
+
+
+```
+
+```{r}
+
+library(tidyverse)
+rcl_dataset<-readRDS("../data/rcl_dataset.rds")
+```
+
+
+
+```{r orgaoJulgador, fig.width=12, fig.height=8, fig.keep='high'}
+
+rcl_dataset %>% 
+  mutate(orgao_julgador=reorder(orgao_julgador,row_number(decisao))) %>% 
+count(orgao_julgador,decisao,sort=TRUE) %>%
+  mutate(percentual=(n*100/sum(n)) %>% round(1)) %>% 
+  ggplot(aes(x=orgao_julgador,y=n,fill=decisao))+
+  geom_bar(stat="identity",position="dodge",colour="black")+
+  scale_fill_manual(values=c("red","darkgreen"),name="Decisão:")+
+ # geom_text(aes(x=orgao_julgador,y=n,label=percentual),position=position_dodge(.9),vjust=-.5)+
+#  facet_grid(~impetrante)+
+  coord_flip()+
+  labs(x="Órgão julgador",y="Número de decisões") + 
+  theme_minimal()+
+  theme(strip.background = element_rect(fill="lightblue",colour="black"),
+        legend.position="bottom",
+        text=element_text(family="Times",
+                          size=20
+                          ))
+
+
+```
+
+
+
+```{r agravo, fig.width=12, fig.height=8, fig.keep='high'}
+
+rcl_dataset %>% 
+  mutate(orgao_julgador=reorder(orgao_julgador,row_number(decisao))) %>% 
+  filter(orgao_julgador=="Colegiada") %>% 
+  count(agravo,decisao,sort=TRUE) %>%
+  mutate(percentual=(n*100/sum(n)) %>% round(1)) %>% 
+  ggplot(aes(x=agravo,y=n,fill=decisao))+
+ # annotate(geom="text",x=2,y=0.25,label="20")+
+  geom_bar(stat="identity",position=position_fill(),colour="black")+
+  scale_fill_manual(values=c("red","darkgreen"),name="Decisão:")+
+  labs(x="Agravo",y="Percentual de decisões")+
+ theme_minimal()+
+  theme(strip.background = element_rect(fill="lightblue",colour="black"),
+        legend.position="bottom",
+        text=element_text(family="Times",
+                          size=20
+                          ))
+
+
+```
+
+
+```{r assunto, fig.width=12, fig.height=8, fig.keep='high'}
+rcl_dataset %>% 
+  mutate(assunto=reorder(assunto,row_number(decisao))) %>% 
+  count(assunto,decisao,sort=TRUE) %>%
+  mutate(percentual=(n*100/sum(n)) %>% round(1)) %>% 
+  ggplot(aes(x=assunto,y=n,fill=decisao))+
+  geom_bar(stat="identity",position="dodge",colour="black")+
+  scale_fill_manual(values=c("red","darkgreen"),name="Decisão:")+
+  # geom_text(aes(x=orgao_julgador,y=n,label=percentual),position=position_dodge(.9),vjust=-.5)+
+  #  facet_grid(~impetrante)+
+  coord_flip()+
+  theme_minimal()+
+theme(strip.background = element_rect(fill="lightblue",colour="black"),
+        legend.position="bottom",
+        text=element_text(family="Times",
+                          size=20
+                          ))+
+  labs(x="Assunto",y="Número de decisões")
+
+```
+
+
+
+```{r paradigma, fig.width=12, fig.height=8, fig.keep='high'}
+rcl_dataset %>% 
+  mutate(paradigma=reorder(paradigma,row_number(decisao))) %>% 
+  count(paradigma,decisao,sort=TRUE) %>%
+  mutate(percentual=(n*100/sum(n)) %>% round(1)) %>% 
+  ggplot(aes(x=paradigma,y=n,fill=decisao))+
+  geom_bar(stat="identity",position="dodge",colour="black")+
+  scale_fill_manual(values=c("red","darkgreen"),name="Decisão:")+
+  coord_flip()+
+  theme_minimal()+
+  theme(strip.background = element_rect(fill="lightblue",colour="black"),
+        legend.position="bottom",
+        text=element_text(family="Times",
+                          size=20
+                          ))+
+  labs(x="Paradígma",y="Número de decisões")
+
+```
+
+
+
+```{r segmento, fig.width=12, fig.height=8, fig.keep='high'}
+
+rcl_dataset %>% 
+  mutate(segmento=reorder(segmento,row_number(decisao))) %>% 
+  count(segmento,decisao,sort=TRUE) %>%
+  mutate(percentual=(n*100/sum(n)) %>% round(1)) %>% 
+  ggplot(aes(x=segmento,y=n,fill=decisao))+
+  geom_bar(stat="identity",position="dodge",colour="black")+
+  scale_fill_manual(values=c("red","darkgreen"),name="Decisão:")+
+  # geom_text(aes(x=orgao_julgador,y=n,label=percentual),position=position_dodge(.9),vjust=-.5)+
+  #  facet_grid(~impetrante)+
+  coord_flip()+
+  theme_minimal() + 
+  theme(strip.background = element_rect(fill="lightblue",colour="black"),
+        legend.position="bottom",
+        text=element_text(family="Times",
+                          size=20
+                          ))+
+  labs(x="Segmento do Judiciário",y="Número de decisões")
+
+```
+
+
+```{r alluvial, fig.width=20, fig.height=12, fig.keep='high'}
+
+rcl_dataset %>% 
+  select(orgao_julgador,segmento,assunto,novo_cpc,paradigma,decisao) %>% 
+  mutate_at(vars(1:5),funs(reorder(.,row_number(decisao)))) %>% 
+  mutate(rcl_id=row_number()) %>% 
+  easyalluvial::alluvial_wide(id=rcl_id,
+                fill_by = 'last_variable',
+                col_vector_flow=c("#ff0000","#006400")) +
+  theme_minimal()+
+  theme(text= element_text(size=20))
+
+```
+
+
+```{r curva_roc, fig.width=20, fig.height=12, fig.keep='high'}
+knitr::include_graphics("graficos/gg_curva_roc.png")
+
+```
+
+
+
+```{r explicacao, fig.width=20, fig.height=12, fig.keep='high'}
+knitr::include_graphics("graficos/gg_explicacao.png")
+
+```
+

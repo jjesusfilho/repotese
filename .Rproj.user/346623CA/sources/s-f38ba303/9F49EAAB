@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1554070915132.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "9F49EAAB",
+    "lastKnownWriteTime" : 1548916725,
+    "last_content_update" : 1548916725,
+    "path" : "~/projetos/livia/docs/word_graficos.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "4,21",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
